@@ -45,7 +45,7 @@ I managed the project side for our team of 3: I set the scope and plan, split th
 This is a hackathon prototype built in a weekend.
 - The app's risk score is the probability of an injury, not of a crash happening.
 - Lighting and traffic-control inputs are in the app but the model doesn't use them yet.
-- We didn't place, but the judges liked the presentation. Their main feedback was that we didn't clearly connect predicting injury risk to actually reducing accidents. If we continued, that link would be the first thing to fix.
+- The judges liked the presentation. Their main feedback was that we didn't clearly connect predicting injury risk to actually reducing accidents. If we continued, that link would be the first thing to fix.
 
 ## Team
 Team Grace: Max Tanner, Grace Murugappan, Joshua Masih
