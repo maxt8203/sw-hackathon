@@ -10,6 +10,9 @@ Around 1.2 million people die in traffic accidents every year. We wanted to see 
 - **Forecast:** a 30-day forecast of daily accident counts using Prophet. It shows a weekly pattern, with peaks around Fridays and Saturdays.
 - **Web app:** a Streamlit front end and Flask API. You enter a city, the hour, the day and the road conditions, and it pulls live weather and returns the chance that a crash involves an injury (Low, Medium or High).
 
+
+## Final presentation: https://docs.google.com/presentation/d/1N2YJ30EUXy-bID9JYPGrMfsFtu9Fv4IpJEOu10YfIQo/edit?usp=sharing
+
 ![30-day accident forecast](images/accident_forecast.png)
 
 ![Correlation heatmap](images/correlation_heatmap.png)
