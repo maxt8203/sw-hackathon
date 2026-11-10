@@ -1,30 +1,28 @@
-
 # Team Grace – Accident Risk Predictor
 
 Our entry for **Hack South West 2025** (Data 4 Good).
 
-Around 1.2 million people die in traffic accidents every year. We wanted to see what the data says about when and where crashes cause injuries, and make it something anyone can try.
+Around 1.2 million people die in traffic accidents every year. We wanted to see what the data says about when and how crashes cause injuries, and make it something anyone can explore.
 
-## What it does
+## What we built
+- **Data exploration:** about 209,000 recorded crashes (time, weather, road, lighting, traffic controls, injuries, causes). [Add the dataset name and link.]
+- **Model comparison:** we compared a random forest, a neural network and a linear SVM for predicting injuries from crash conditions, using 4-fold cross-validation. The random forest had by far the lowest error and trained fastest, so we went with it. See `model_comparison.ipynb`.
+- **Forecast:** a 30-day forecast of daily accident counts using Prophet. It shows a weekly pattern, with peaks around Fridays and Saturdays.
+- **Web app:** a Streamlit front end and Flask API. You enter a city, the hour, the day and the road conditions, and it pulls live weather and returns the chance that a crash involves an injury (Low, Medium or High).
 
-You enter a city, the hour, the day of the week and the road conditions. The app pulls the live weather for that city and returns the chance that a crash in those conditions involves an injury, labelled Low, Medium or High.
+![30-day accident forecast](images/accident_forecast.png)
 
-## How it works
-
-- **Data:** about 209,000 recorded crashes (hour, weather, road surface, lighting, traffic controls, injuries, contributing causes). [Add the dataset name and link.]
-- **Model:** a random forest classifier (scikit-learn) that predicts whether a crash involves at least one injury. It's trained on hour, day of week, weather and road surface.
-- **API:** a small Flask service loads the model, fetches live weather from OpenWeatherMap and returns the prediction.
-- **Front end:** a Streamlit app where you enter the conditions and see the result.
+![Correlation heatmap](images/correlation_heatmap.png)
 
 ## What's in the repo
-
 - `TeamGracextracolumnpractice.ipynb` – first look at the data (column counts, distributions)
-- `WEBSITE_FOR_TEAM_GRACE/model.py` – trains the model
+- `model_comparison.ipynb` – the three-model comparison
+- `WEBSITE_FOR_TEAM_GRACE/model.py` – trains the app's model
 - `WEBSITE_FOR_TEAM_GRACE/api.py` – Flask prediction API
 - `WEBSITE_FOR_TEAM_GRACE/app.py` – Streamlit app
+- `images/` – charts used above
 
-## Run it
-
+## Run the app
 ```bash
 pip install streamlit flask flask-cors scikit-learn pandas requests
 
@@ -40,15 +38,14 @@ python api.py
 streamlit run app.py
 ```
 
-## Where it stands
-
-This is a hackathon prototype built in a weekend.
-
-- The risk score is the probability of an injury, not of a crash happening.
-- Lighting and traffic-control inputs are in the app but the model doesn't use them yet.
-- The model comparison, 3D plots and forecasting from our final presentation were done in Colab and aren't in this repo.
-- The judges liked the presentation. Their main feedback was that we didn't clearly connect predicting injury risk to actually reducing accidents. If we continued, that link would be the first thing to fix: for example, showing how the risk scores could guide where to place road safety measures.
-
 ## My contribution
+I managed the project side for our team of 3: I set the scope and plan, split the work into tasks on a whiteboard and assigned them, ran a quick check that the app worked as expected, and designed the final presentation. The code was written mainly by two teammates: Grace Murugappan (ML and data) and Joshua Masih (website).
 
-I managed the project side for our team of 3: I set the scope and plan, split the work into tasks on a whiteboard and assigned them, ran a quick check that the app worked as expected, and designed the final presentation. The code was written mainly by two teammates, Grace Murugappan (ML & data) and Joshua Masih (website).
+## Where it stands
+This is a hackathon prototype built in a weekend.
+- The app's risk score is the probability of an injury, not of a crash happening.
+- Lighting and traffic-control inputs are in the app but the model doesn't use them yet.
+- We didn't place, but the judges liked the presentation. Their main feedback was that we didn't clearly connect predicting injury risk to actually reducing accidents. If we continued, that link would be the first thing to fix.
+
+## Team
+Team Grace: Max Tanner, Grace Murugappan, Joshua Masih
